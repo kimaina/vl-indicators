@@ -61,31 +61,7 @@ SELECT
     
 
     
-     
-     # ART Line
-     SUM(hmsd.on_original_first_line_this_month) AS `on_original_first_line_this_month`,
-     SUM(hmsd.on_alt_first_line_this_month) AS `on_alt_first_line_this_month`,
-     SUM(hmsd.on_second_line_or_higher_this_month) AS `on_second_line_or_higher_this_month`,
-
-	# Viral Load
-    COUNT( DISTINCT if(vl_1 < 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 30, `encounter_id`, null)) as vl_suppressed_encounters_this_month,
-    COUNT( DISTINCT if(vl_1 >= 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 30, `encounter_id`, null)) as vl_unsuppressed_encounters_this_month,
-    COUNT( DISTINCT if(vl_1 < 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 30, `person_id`, null)) as vl_suppressed_patients_this_month,
-    COUNT( DISTINCT if(vl_1 >= 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 30, `person_id`, null)) as vl_unsuppressed_patients_this_month,
-	COUNT( DISTINCT if(vl_1 < 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 365, `person_id`, null)) as vl_suppressed_patients_past_year,
-    COUNT( DISTINCT if(vl_1 >= 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) <365, `person_id`, null)) as vl_unsuppressed_patients_past_year,
-	COUNT( DISTINCT if(vl_1 < 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 365, `encounter_id`, null)) as vl_suppressed_encounters_past_year,
-    COUNT( DISTINCT if(vl_1 >= 1000 AND TIMESTAMPDIFF(DAY, vl_1_date,`endDate`) < 365, `encounter_id`, null)) as vl_unsuppressed_encounters_past_year,
-     
-     
-	SUM(hmsd.due_for_vl_this_month) AS `due_for_vl_this_month`,
-	SUM(hmsd.qualifies_for_follow_up_vl) AS `qualifies_for_follow_up_vl`,
-    SUM(hmsd.got_follow_up_vl_this_month) AS `got_follow_up_vl_this_month`,
-    SUM(hmsd.follow_up_vl_suppressed_this_month) AS `follow_up_vl_suppressed_this_month`,
-    SUM(hmsd.follow_up_vl_unsuppressed_this_month) AS `follow_up_vl_unsuppressed_this_month`,
-    SUM(hmsd.follow_up_vl_suppressed_this_month) AS `follow_up_vl_unsuppressed`,
-    SUM(hmsd.follow_up_vl_suppressed_this_month) AS `follow_up_vl_suppressed`,
-    AVG(hmsd.num_days_to_follow_vl) AS `avg_num_days_to_follow_vl`
+    
     
     
     
